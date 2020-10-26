@@ -1,5 +1,5 @@
 # SSL certificates for development
-# $ mkcert andrii-shkrebtii.local www.andrii-shkrebtii.local
+# $ mkcert andrii-shkrebtii.local www.andrii-shkrebtii.local andrii-shkrebtii-secondary-site.local www.andrii-shkrebtii-secondary-site.local
 #
 # Start composition:
 # $ docker-compose up -d
@@ -27,33 +27,33 @@ services:
     labels:
       - traefik.enable=true
       # HTTP
-      - traefik.http.routers.andrii-shkrebtii-local-http.rule=Host(`andrii-shkrebtii.local`,`www.andrii-shkrebtii.local`)
+      - traefik.http.routers.andrii-shkrebtii-local-http.rule=Host(`andrii-shkrebtii.local`,`www.andrii-shkrebtii.local`,`andrii-shkrebtii-secondary-site.local`,`www.andrii-shkrebtii-secondary-site.local`)
       - traefik.http.routers.andrii-shkrebtii-local-http.entrypoints=http
       - traefik.http.routers.andrii-shkrebtii-local-http.service=andrii-shkrebtii-local-http
       - traefik.http.services.andrii-shkrebtii-local-http.loadbalancer.server.port=80
       - traefik.http.services.andrii-shkrebtii-local-http.loadbalancer.server.scheme=http
       # HTTPS
-      - traefik.http.routers.andrii-shkrebtii-local-https.rule=Host(`andrii-shkrebtii.local`,`www.andrii-shkrebtii.local`)
+      - traefik.http.routers.andrii-shkrebtii-local-https.rule=Host(`andrii-shkrebtii.local`,`www.andrii-shkrebtii.local`,`andrii-shkrebtii-secondary-site.local`,`www.andrii-shkrebtii-secondary-site.local`)
       - traefik.http.routers.andrii-shkrebtii-local-https.entrypoints=https
       - traefik.http.routers.andrii-shkrebtii-local-https.tls=true
       - traefik.http.routers.andrii-shkrebtii-local-https.service=andrii-shkrebtii-local-https
       - traefik.http.services.andrii-shkrebtii-local-https.loadbalancer.server.port=443
       - traefik.http.services.andrii-shkrebtii-local-https.loadbalancer.server.scheme=https
       # Develop with extension that allows setting livereload host and port - https://github.com/lokcito/livereload-extensions
-      - traefik.http.routers.andrii-shkrebtii-local-livereload-https.rule=Host(`andrii-shkrebtii.local`,`www.andrii-shkrebtii.local`)
+      - traefik.http.routers.andrii-shkrebtii-local-livereload-https.rule=Host(`andrii-shkrebtii.local`,`www.andrii-shkrebtii.local`,`andrii-shkrebtii-secondary-site.local`,`www.andrii-shkrebtii-secondary-site.local`)
       - traefik.http.routers.andrii-shkrebtii-local-livereload-https.entrypoints=livereload-https
       - traefik.http.routers.andrii-shkrebtii-local-livereload-https.tls=true
       - traefik.http.routers.andrii-shkrebtii-local-livereload-https.service=andrii-shkrebtii-local-livereload-https
       - traefik.http.services.andrii-shkrebtii-local-livereload-https.loadbalancer.server.port=35729
       - traefik.http.services.andrii-shkrebtii-local-livereload-https.loadbalancer.server.scheme=http
-      - traefik.http.routers.andrii-shkrebtii-local-livereload-http.rule=Host(`andrii-shkrebtii.local`,`www.andrii-shkrebtii.local`)
+      - traefik.http.routers.andrii-shkrebtii-local-livereload-http.rule=Host(`andrii-shkrebtii.local`,`www.andrii-shkrebtii.local`,`andrii-shkrebtii-secondary-site.local`,`www.andrii-shkrebtii-secondary-site.local`)
       - traefik.http.routers.andrii-shkrebtii-local-livereload-http.entrypoints=livereload-http
       - traefik.http.routers.andrii-shkrebtii-local-livereload-http.service=andrii-shkrebtii-local-livereload-http
       - traefik.http.services.andrii-shkrebtii-local-livereload-http.loadbalancer.server.port=35729
       - traefik.http.services.andrii-shkrebtii-local-livereload-http.loadbalancer.server.scheme=http
     # Must add extra_hosts to be written to /etc/hosts - otherwise containerized application can not curl itself
     extra_hosts:
-      - "andrii-shkrebtii.local www.andrii-shkrebtii.local:127.0.0.1"
+      - "andrii-shkrebtii.local www.andrii-shkrebtii.local andrii-shkrebtii-secondary-site.local www.andrii-shkrebtii-secondary-site.local:127.0.0.1"
       # Required for xDebug on Linux hosts till docker.host.internal is not available by default - https://github.com/docker/libnetwork/pull/2348/files
       - "host.docker.internal:172.17.0.1"
     links:
