@@ -76,5 +76,41 @@ return [
     ],
     'install' => [
         'date' => 'Sat, 24 Oct 2020 08:25:32 +0000'
+    ],
+    'system' => [
+        'default' => [
+            'web' => [
+                'unsecure' => [
+                    'base_url' => 'https://andrii-shkrebtii.local/',
+                    'base_link_url' => '{{unsecure_base_url}}',
+                    'base_static_url' => 'https://andrii-shkrebtii.local/static/',
+                    'base_media_url' => 'https://andrii-shkrebtii.local/media/'
+                ],
+                'secure' => [
+                    'base_url' => 'https://andrii-shkrebtii.local/',
+                    'base_link_url' => '{{secure_base_url}}',
+                    'base_static_url' => 'https://andrii-shkrebtii.local/static/',
+                    'base_media_url' => 'https://andrii-shkrebtii.local/media/'
+                ],
+            ],
+        ],
+        'websites' => [
+            'secondary_site' => [
+                'web' => [
+                    'unsecure' => [
+                        'base_url' => 'https://andrii-shkrebtii-secondary-site.local/',
+                        'base_link_url' => 'https://andrii-shkrebtii-secondary-site.local/',
+                        'base_static_url' => 'https://andrii-shkrebtii-secondary-site.local/static/',
+                        'base_media_url' => 'https://andrii-shkrebtii-secondary-site.local/media/'
+                    ],
+                    'secure' => [
+                        'base_url' => 'https://andrii-shkrebtii-secondary-site.local/',
+                        'base_link_url' => 'https://andrii-shkrebtii-secondary-site.local/',
+                        'base_static_url' => 'https://andrii-shkrebtii-secondary-site.local/static/',
+                        'base_media_url' => 'https://andrii-shkrebtii-secondary-site.local/media/'
+                    ]
+                ]
+            ]
+        ]
     ]
 ];
