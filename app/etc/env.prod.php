@@ -91,8 +91,8 @@ return [
                     'base_link_url' => '{{secure_base_url}}',
                     'base_static_url' => 'https://andrii-shkrebtii.local/static/',
                     'base_media_url' => 'https://andrii-shkrebtii.local/media/'
-                ],
-            ],
+                ]
+            ]
         ],
         'websites' => [
             'secondary_site' => [
