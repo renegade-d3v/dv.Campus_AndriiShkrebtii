@@ -14,9 +14,9 @@ return [
         'connection' => [
             'default' => [
                 'host' => 'mysql',
-                'dbname' => 'andrii_shkrebtii_dev_local',
-                'username' => 'andrii_shkrebtii_dev_local',
-                'password' => 'EQ4rF!r6AUn^RBZy',
+                'dbname' => 'andrii_shkrebtii_build_local',
+                'username' => 'andrii_shkrebtii_build_local',
+                'password' => 'PRq5tf?rxcDk&9KG',
                 'model' => 'mysql4',
                 'engine' => 'innodb',
                 'initStatements' => 'SET NAMES utf8;',
