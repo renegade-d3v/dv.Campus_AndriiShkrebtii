@@ -34,6 +34,7 @@ atlassian*
 /grunt-config.json
 /pub/media/*.*
 !/pub/media/.htaccess
+!/pub/media/styles.css
 /pub/media/attribute/*
 !/pub/media/attribute/.htaccess
 /pub/media/analytics/*
@@ -59,6 +60,7 @@ atlassian*
 /pub/media/captcha/*
 /pub/static/*
 !/pub/static/.htaccess
+
 
 /var/*
 !/var/.htaccess
