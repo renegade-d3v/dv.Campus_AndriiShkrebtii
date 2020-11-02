@@ -91,10 +91,17 @@ return [
                     'base_link_url' => '{{secure_base_url}}',
                     'base_static_url' => 'https://andrii-shkrebtii-dev.local/static/',
                     'base_media_url' => 'https://andrii-shkrebtii-dev.local/media/'
-                ],
-            ],
+                ]
+            ]
         ],
         'websites' => [
+            'base' => [
+                'design' => [
+                    'theme' => [
+                        'theme_id' => 4
+                    ]
+                ]
+            ],
             'secondary_site' => [
                 'web' => [
                     'unsecure' => [
