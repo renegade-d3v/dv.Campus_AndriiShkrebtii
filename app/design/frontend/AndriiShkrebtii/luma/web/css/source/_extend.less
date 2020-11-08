@@ -1,0 +1,243 @@
+@import 'extend/_header.less';
+@import 'extend/_footer.less';
+
+// Custom colors
+@color-red_light: #ffcccb;
+@header-panel__background-color: @color-blue3;
+@copyright__background-color: @color-blue3;
+@_nav-background-color: @color-sky-blue1;
+
+//  Information message
+@message-info__color: @color-white;
+@message-info__background: @color-sky-blue1;
+@message-info-link__color: @color-orange-red1;
+@message-info-link__color-hover: @color-black;
+@message-info-link__color-active: @color-black;
+@message-info-icon__color-inner: @color-white;
+
+//  Warning message
+@message-warning__color: @color-red9;
+@message-warning__background: @color-red_light;
+@message-warning-link__color: @color-black;
+@message-warning-link__color-hover: @color-black;
+@message-warning-link__color-active: @color-black;
+@message-warning-icon__color-inner: @color-red9;
+
+//  Success message
+@message-success__color: @color-white;
+@message-success__background: @color-blue3;
+@message-success-link__color: @color-black;
+@message-success-link__color-hover: @color-black;
+@message-success-link__color-active: @color-black;
+@message-success-icon__color-inner: @color-white;
+
+// Links-colors
+.lib-link(
+    @_link-color: @color-orange-red1,
+    @_link-color-visited: @color-orange-red1,
+    @_link-color-hover: @color-red9,
+    @_link-color-active: @color-red9
+) {
+    .lib-css(color, @_link-color);
+
+    &:visited {
+        .lib-css(color, @_link-color-visited);
+    }
+
+    &:hover {
+        .lib-css(color, @_link-color-hover);
+    }
+
+    &:active {
+        .lib-css(color,@_link-color-active);
+    }
+}
+
+// Tabs-colors
+.lib-data-tabs(
+    @_tab-control-background-color: @color-blue3,
+    @_tab-control-color: @color-white,
+    @_tab-control-text-decoration: @tab-control__text-decoration,
+
+    @_tab-control-color-visited: @tab-control__visited__color,
+    @_tab-control-text-decoration-visited: @tab-control__visited__text-decoration,
+
+    @_tab-control-background-color-hover: @color-sky-blue1,
+    @_tab-control-color-hover: @color-black,
+    @_tab-control-text-decoration-hover: @tab-control__hover__text-decoration,
+
+    @_tab-control-background-color-active: @color-sky-blue1,
+    @_tab-control-color-active: @tab-control__active__color,
+    @_tab-control-text-decoration-active: @tab-control__active__text-decoration,
+
+    @_tab-control-height: @tab-control__height,
+    @_tab-control-margin-right: @tab-control__margin-right,
+
+    @_tab-control-padding-top: @tab-control__padding-top,
+    @_tab-control-padding-right: @tab-control__padding-right,
+    @_tab-control-padding-bottom: @tab-control__padding-bottom,
+    @_tab-control-padding-left: @tab-control__padding-left,
+
+    @_tab-control-border-width: @tab-control__border-width,
+    @_tab-control-border-color: @tab-control__border-color,
+
+    @_tab-content-background-color: @tab-content__background-color,
+    @_tab-content-border: @tab-content__border,
+    @_tab-content-border-top-status: @tab-content__border-top-status,
+    @_tab-content-margin-top: @tab-content__margin-top,
+
+    @_tab-content-padding-top: @tab-content__padding-top,
+    @_tab-content-padding-right: @tab-content__padding-right,
+    @_tab-content-padding-bottom: @tab-content__padding-bottom,
+    @_tab-content-padding-left: @tab-content__padding-left
+) {
+    .lib-data-tabs__base();
+    > .item.title {
+        .lib-css(margin, 0 @_tab-control-margin-right 0 0);
+        > .switch {
+            font-weight: @font-weight__bold;
+            .lib-link(
+                @_link-color: @_tab-control-color,
+                @_link-text-decoration: @_tab-control-text-decoration,
+                @_link-color-visited: @color-white,
+                @_link-text-decoration-visited: @_tab-control-text-decoration-visited,
+                @_link-color-hover: @_tab-control-color-hover,
+                @_link-text-decoration-hover: @_tab-control-text-decoration-hover,
+                @_link-color-active: @_tab-control-color-active,
+                @_link-text-decoration-active: @_tab-control-text-decoration-active
+            );
+            .lib-css(background, @_tab-control-background-color);
+            .lib-css(border, @_tab-content-border);
+            border-bottom: none;
+            .lib-css(height, @_tab-control-height);
+            .lib-css(padding, @_tab-control-padding-top @_tab-control-padding-right @_tab-control-padding-bottom @_tab-control-padding-left);
+        }
+
+        &:not(.disabled) > .switch:focus,
+        &:not(.disabled) > .switch:hover {
+            .lib-css(background, @_tab-control-background-color-hover);
+        }
+
+        &:not(.disabled) > .switch:active,
+        &.active > .switch,
+        &.active > .switch:focus,
+        &.active > .switch:hover {
+            .lib-css(background, @_tab-control-background-color-active);
+            .lib-css(color, @_tab-control-color-active);
+            .lib-css(text-decoration, @_tab-control-text-decoration-active);
+        }
+
+        &.active > .switch,
+        &.active > .switch:focus,
+        &.active > .switch:hover {
+            .lib-css(padding-bottom, @_tab-control-padding-bottom + @_tab-control-border-width);
+        }
+    }
+
+    > .item.content {
+        .lib-css(background, @_tab-content-background-color);
+        margin-top: @_tab-content-margin-top;
+        padding: @_tab-content-padding-top @_tab-content-padding-right @_tab-content-padding-bottom @_tab-content-padding-left;
+
+        ._lib-tab-content-border(
+            @_tab-content-border-top-status: @_tab-content-border-top-status,
+            @_tab-content-border: @_tab-content-border
+        );
+    }
+}
+
+// Main site navigation
+.lib-main-navigation(
+    @_nav-background-color: @color-sky-blue1,
+    @_nav-level0-item-background-color: @color-sky-blue1
+) {
+    .navigation {
+        .lib-css(background, @_nav-background-color);
+
+        a {
+            .lib-css(color, @color-white);
+        }
+
+        a:hover {
+            .lib-css(color, @color-black);
+        }
+    }
+}
+.lib-main-navigation-desktop(
+    @_nav-background-color: @color-sky-blue1,
+    @_nav-level0-item-background-color: @color-sky-blue1,
+    @_nav-level0-item-color: @color-white,
+    @_nav-level0-item-color-hover: @color-black,
+    @_navigation-level0-item__hover__color: @color-black,
+    @_nav-level0-item__active__border-color: @color-black,
+    @_nav-level0-item-color-active: @color-black,
+    @_submenu-item-color: @color-white
+) {
+    .navigation {
+        .lib-css(background, @_nav-background-color);
+        .level0 {
+            > .level-top {
+                .lib-css(color, @_nav-level0-item-color);
+            }
+            &:hover, &.ui-state-focus {
+                .lib-css(color, @_nav-level0-item-color-hover);
+            }
+            &.active {
+                .all-category {
+                    .ui-state-focus {
+                        .lib-css(border-color, @_nav-level0-item__active__border-color);
+                    }
+                }
+            }
+            &.active,
+            &.has-active {
+                > .level-top {
+                    .lib-css(border-color, @_nav-level0-item__active__border-color);
+                }
+            }
+            &.active,
+            &.has-active {
+                > a:not(.ui-state-active) {
+                    .lib-css(border-color, @_nav-level0-item__active__border-color);
+                    .lib-css(color, @_nav-level0-item-color-active);
+
+                }
+            }
+        }
+        .submenu {
+            &:not(:first-child) {
+                ul {
+                    > li {
+                        a {
+                            .lib-css(color, @_submenu-item-color);
+
+                            &:hover {
+                                .lib-css(color, @navigation-level0-item__hover__color);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+& when (@media-common = true) {
+    // Mobile navigation background-color
+    .nav-sections {
+        .lib-css(background, @color-sky-blue1);
+    }
+
+    .nav-sections-item-title {
+        background: @color-blue3;
+    }
+
+    // Tabs counter color
+    .data.switch .counter {
+        .lib-css(color, @color-white);
+    }
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}
