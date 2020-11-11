@@ -1,0 +1,74 @@
+// Main link colors
+.lib-link(
+    @_link-color: @color-orange-red1,
+    @_link-color-visited: @color-red9,
+    @_link-color-hover: @color-red9,
+    @_link-color-active: @color-red9
+) {
+    .lib-css(color, @_link-color);
+
+    &:visited {
+        .lib-css(color, @_link-color-visited);
+    }
+
+    &:hover {
+        .lib-css(color, @_link-color-hover);
+    }
+
+    &:active {
+        .lib-css(color,@_link-color-active);
+    }
+}
+
+// Link colors in breadcrumbs
+.lib-breadcrumbs(
+    @_breadcrumbs-link-color: @color-orange-red1,
+    @_breadcrumbs-link-color-visited: @color-red9,
+    @_breadcrumbs-link-color-hover: @color-red9,
+    @_breadcrumbs-link-color-active: @color-red9
+) {
+    a {
+        .lib-css(color, @_breadcrumbs-link-color);
+
+        &:visited {
+            .lib-css(color, @_breadcrumbs-link-color-visited);
+        }
+
+        &:hover {
+            .lib-css(color, @_breadcrumbs-link-color-hover);
+        }
+
+        &:active {
+            .lib-css(color, @_breadcrumbs-link-color-active);
+        }
+    }
+}
+
+// Product heading link colors
+.abs-product-link {
+    > a {
+        .lib-link(
+            @_link-color: @color-orange-red1,
+            @_link-color-visited: @color-red9,
+            @_link-color-hover: @color-red9,
+            @_link-color-active: @color-red9
+        )
+    }
+}
+
+.minicart-items-wrapper {
+    .minicart-items {
+        .product-item {
+            .product-item-details {
+                .product-item-name {
+                    a {
+                        .lib-css(color, @color-orange-red1);
+                        &:hover {
+                            .lib-css(color, @color-red9);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
