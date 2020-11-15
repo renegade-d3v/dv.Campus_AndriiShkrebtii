@@ -120,9 +120,15 @@
     Options +FollowSymLinks
     RewriteEngine on
 
+    ### Development ###
+    SetEnvIf Host .*andrii-shkrebtii-dev.local.* MAGE_RUN_CODE=base
+    SetEnvIf Host .*andrii-shkrebtii-dev.local.* MAGE_RUN_TYPE=website
+    SetEnvIf Host .*andrii-shkrebtii-secondary-site-dev.local.* MAGE_RUN_CODE=secondary_site
+    SetEnvIf Host .*andrii-shkrebtii-secondary-site-dev.local.* MAGE_RUN_TYPE=website
+
+    ### Production ###
     SetEnvIf Host .*andrii-shkrebtii.local.* MAGE_RUN_CODE=base
     SetEnvIf Host .*andrii-shkrebtii.local.* MAGE_RUN_TYPE=website
-
     SetEnvIf Host .*andrii-shkrebtii-secondary-site.local.* MAGE_RUN_CODE=secondary_site
     SetEnvIf Host .*andrii-shkrebtii-secondary-site.local.* MAGE_RUN_TYPE=website
 
