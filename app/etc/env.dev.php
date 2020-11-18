@@ -100,6 +100,11 @@ return [
                     'theme' => [
                         'theme_id' => 4
                     ]
+                ],
+                'general' => [
+                    'locale' => [
+                        'code' => 'ru_RU'
+                    ]
                 ]
             ],
             'secondary_site' => [
