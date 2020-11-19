@@ -12,5 +12,14 @@
                 </container>
             </container>
         </referenceContainer>
+        <referenceContainer name="sidebar.additional">
+            <container htmlTag="div" htmlClass="wrapper">
+                <block class="Magento\Cms\Block\Block" name="custom_block" before="-">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">left_page_block</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
     </body>
 </page>
