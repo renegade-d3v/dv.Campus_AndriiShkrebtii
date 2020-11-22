@@ -1,11 +1,6 @@
-<?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
+<?php /** @var \Magento\Newsletter\Block\Subscribe $block */ ?>
+<?php /** @var \Magento\Framework\Escaper $escaper */ ?>
 
-/** @var \Magento\Newsletter\Block\Subscribe $block */
-?>
 <div class="block newsletter">
     <div class="title"><strong><?= $block->escapeHtml(__('Newsletter')) ?></strong></div>
     <div class="content">
@@ -15,6 +10,7 @@
             method="post"
             data-mage-init='{"validation": {"errorClass": "mage-error"}}'
             id="newsletter-validate-detail">
+            <p class="subscribe-message"><?= $escaper->escapeHtml(__('Subscribe now to get a special promo!')) ?></p>
             <div class="field newsletter">
                 <div class="control">
                     <label for="newsletter">
