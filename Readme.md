@@ -45,3 +45,30 @@ For compilation CSS files, republish symlinks to the source files run commands a
 ```bash
 grunt exec:AndriiShkrebtii_luma_en_us && grunt less:AndriiShkrebtii_luma_en_us && grunt watch
 ```
+After adding ru_RU local for site use new grunt command:
+```bash
+grunt exec:AndriiShkrebtii_luma_ru_ru && grunt less:AndriiShkrebtii_luma_ru_ru && grunt watch
+```
+
+## Hint for workinkg with layouts ##
+For working with layout files created module 
+### LayoutDebug Module ###
+For start module edit config.php at string: 
+```bash
+'AndriiShkrebtii_LayoutDebug' => 0
+```
+switch to
+```bash
+'AndriiShkrebtii_LayoutDebug' => 1
+```
+and watch file: `var/log/layout_block.xml`
+
+
+### Create and Update Database Dump ###
+```bash
+docker exec -it mysql80 sh -c "mysqldump -u<user> -p <db_name> --no-tablespaces | gzip > /tmp/db-dev.sql.gz"
+```
+Move DB-file from container
+```bash
+docker container cp mysql80:/tmp/db-dev.sql.gz db-dev.sql.gz
+```
