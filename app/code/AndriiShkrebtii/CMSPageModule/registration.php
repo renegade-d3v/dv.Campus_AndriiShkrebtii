@@ -2,4 +2,4 @@
 
 use Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::MODULE, 'CMSPageModule', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'AndriiShkrebtii_CMSPageModule', __DIR__);
