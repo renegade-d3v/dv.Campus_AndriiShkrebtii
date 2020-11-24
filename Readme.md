@@ -66,9 +66,9 @@ and watch file: `var/log/layout_block.xml`
 
 ### Create and Update Database Dump ###
 ```bash
-docker exec -it mysql80 sh -c "mysqldump -u<user> -p <db_name> --no-tablespaces | gzip > /tmp/db-dev.sql.gz"
+docker exec -it mysql80 sh -c "mysqldump -u<user> -p <db_name> --no-tablespaces | gzip > /tmp/db.sql.gz"
 ```
 Move DB-file from container
 ```bash
-docker container cp mysql80:/tmp/db-dev.sql.gz db-dev.sql.gz
+docker container cp mysql80:/tmp/db.sql.gz db.sql.gz
 ```
