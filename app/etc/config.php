@@ -321,6 +321,7 @@ return [
         'Amazon_Login' => 1,
         'Amazon_Payment' => 1,
         'AndriiShkrebtii_CMSPageModule' => 1,
+        'AndriiShkrebtii_ControllerDemo' => 1,
         'AndriiShkrebtii_LayoutDebug' => 0,
         'Dotdigitalgroup_Email' => 1,
         'Dotdigitalgroup_Chat' => 1,
