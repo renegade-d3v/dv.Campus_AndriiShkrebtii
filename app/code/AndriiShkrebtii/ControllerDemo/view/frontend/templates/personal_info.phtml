@@ -1,0 +1,12 @@
+<?php /** @var \AndriiShkrebtii\ControllerDemo\Block\PersonalInfoBlock $block */ ?>
+<?php /** @var \Magento\Framework\Escaper $escaper */ ?>
+
+<div class="information-wrapper">
+    <img class="userpic" src='<?php echo $this->getViewFileUrl('AndriiShkrebtii_ControllerDemo::images/Photo.jpg'); ?>' alt="<?= $escaper->escapeHtml('User Image') ?>">
+    <span><?= $escaper->escapeHtml(__('User Name')) ?></span>
+    <h2><?= $escaper->escapeHtml(__('%1 %2', $block->getName(), $block->getSurname())) ?></h2>
+    <ul class="link-list">
+        <li><a href="<?= $escaper->escapeUrl(__($block->getRepoUrl())) ?>"><img src='<?= $escaper->escapeHtml($this->getViewFileUrl('AndriiShkrebtii_ControllerDemo::images/github-logo.png')); ?>' alt="<?= $escaper->escapeHtml('Github logo') ?>"></a></li>
+        <li><a href="<?= $escaper->escapeUrl(__($block->getFBUrl())) ?>"><img src='<?= $escaper->escapeHtml($this->getViewFileUrl('AndriiShkrebtii_ControllerDemo::images/fb-logo.png')); ?>' alt="<?= $escaper->escapeHtml('Facebook logo') ?>"></a></li>
+    </ul>
+</div>

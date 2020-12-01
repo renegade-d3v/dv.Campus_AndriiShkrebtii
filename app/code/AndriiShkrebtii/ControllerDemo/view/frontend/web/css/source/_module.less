@@ -1,0 +1,48 @@
+& when (@media-common = true) {
+
+    .information-wrapper {
+        margin: 0 auto;
+        max-width: 1240px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        span {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: @font-weight__bold;
+            color: @color-red9;
+        }
+        h2 {
+            margin: 0 0 10px 0;
+            font-weight: @font-weight__bold;
+            text-transform: uppercase;
+        }
+        .userpic {
+            max-width: 256px;
+            max-height: 256px;
+            width: 100%;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            box-sizing: border-box;
+            box-shadow: 9px 9px 12px -4px #616161;
+        }
+        .link-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            li {
+                margin: 0 15px 0 0;
+                a {
+                    img {
+                        max-width: 32px;
+                        max-height: 32px;
+                    }
+                }
+            }
+
+        }
+    }
+}
