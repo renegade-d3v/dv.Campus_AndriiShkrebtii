@@ -27,6 +27,8 @@ class DataController implements \Magento\Framework\App\Action\HttpGetActionInter
      */
     public function execute(): PageResponse
     {
+        $page = $this->pageResponseFactory->create();
+        $page->getLayout()->getUpdate()->addHandle('andriishkrebtii_controller_demo_demo_data_controller');
         return $this->pageResponseFactory->create();
     }
 }

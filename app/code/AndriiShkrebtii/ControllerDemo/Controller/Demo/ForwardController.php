@@ -20,6 +20,7 @@ class ForwardController implements \Magento\Framework\App\Action\HttpGetActionIn
         \Magento\Framework\Controller\Result\ForwardFactory $forwardResponseFactory
     ) {
         $this->forwardResponseFactory = $forwardResponseFactory;
+
     }
 
     /**
@@ -28,13 +29,13 @@ class ForwardController implements \Magento\Framework\App\Action\HttpGetActionIn
     public function execute(): ForwardResponse
     {
         return $this->forwardResponseFactory->create()
-            ->setController('DataController')
             ->setParams([
                 '_secure' => true,
                 'name' => 'Andrii',
                 'surname' => 'Shkrebtii',
-                'repourl' => 'https://github.com/jimmywilson111'
+                'repourl' => 'https://github.com/jimmywilson111',
+                'fblink' => 'https://facebook.com/freeman.jimmy.wilson'
             ])
-            ->forward('action');
+            ->forward('DataController');
     }
 }

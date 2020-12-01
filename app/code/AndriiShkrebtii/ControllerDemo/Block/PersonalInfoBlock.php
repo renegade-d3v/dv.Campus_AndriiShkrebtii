@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace AndriiShkrebtii\ControllerDemo\Block;
 
-use Magento\Tests\NamingConvention\true\string;
-
 class PersonalInfoBlock extends \Magento\Framework\View\Element\Template
 {
     /**
@@ -29,5 +27,13 @@ class PersonalInfoBlock extends \Magento\Framework\View\Element\Template
     public function getRepoUrl(): string
     {
         return (string) $this->getRequest()->getParam('repourl');
+    }
+
+    /**
+     * @return string
+     */
+    public function getFBUrl(): string
+    {
+        return (string) $this->getRequest()->getParam('fblink');
     }
 }
