@@ -1,0 +1,7 @@
+<?php /** @var \AndriiShkrebtii\ControllerDemo\Block\PersonalInfoBlock $block */ ?>
+<?php /** @var \Magento\Framework\Escaper $escaper */ ?>
+
+<div class="information-wrapper">
+    <h2><?= $escaper->escapeHtml(__('Name: %1 Surname: %2', $block->getName(), $block->getSurname())) ?></h2>
+    <a href="<?= $escaper->escapeUrl(__($block->getRepoUrl())) ?>"><?= $escaper->escapeHtml(__('Github Link')) ?></a>
+</div>
