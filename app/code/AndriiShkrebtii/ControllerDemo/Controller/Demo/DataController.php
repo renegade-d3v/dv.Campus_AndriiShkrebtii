@@ -29,6 +29,7 @@ class DataController implements \Magento\Framework\App\Action\HttpGetActionInter
     {
         $page = $this->pageResponseFactory->create();
         $page->getLayout()->getUpdate()->addHandle('andriishkrebtii_controller_demo_demo_data_controller');
+        $page->getConfig()->getTitle()->set('Personal Info Page');
         return $this->pageResponseFactory->create();
     }
 }
