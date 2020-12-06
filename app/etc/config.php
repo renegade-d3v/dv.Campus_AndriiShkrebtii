@@ -323,6 +323,7 @@ return [
         'AndriiShkrebtii_CMSPageModule' => 1,
         'AndriiShkrebtii_ControllerDemo' => 1,
         'AndriiShkrebtii_LayoutDebug' => 0,
+        'AndriiShkrebtii_RegularCustomer' => 1,
         'Dotdigitalgroup_Email' => 1,
         'Dotdigitalgroup_Chat' => 1,
         'Klarna_Core' => 1,
