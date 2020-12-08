@@ -39,6 +39,10 @@ class Request implements \Magento\Framework\App\Action\HttpPostActionInterface
         // @TODO: pass message via notifications, not alert
         // @TODO: add form key validation and hideIt validation
         // @TODO: add Google Recaptcha to the form
-        return $this->jsonResponseFactory->create();
+        $response = $this->jsonResponseFactory->create();
+        $response->setData([
+            'message' => __('You request for registration in program was accepted!')
+        ]);
+        return $response;
     }
 }

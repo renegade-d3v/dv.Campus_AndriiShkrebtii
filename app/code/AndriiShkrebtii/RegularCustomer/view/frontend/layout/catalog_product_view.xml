@@ -12,7 +12,7 @@
                 </arguments>
                 <block class="Magento\Cms\Block\Block" name="loyal.program.message">
                     <arguments>
-                        <argument name="block_id" xsi:type="string">loyal_program_text</argument>
+                        <argument name="block_id" xsi:type="string">loyalty_program_text</argument>
                     </arguments>
                 </block>
                 <block class="Magento\Framework\View\Element\Template"
