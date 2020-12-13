@@ -1,0 +1,87 @@
+& when (@media-common = true) {
+
+    .content {
+        .chat {
+            width: 300px;
+            border: solid 1px #EEE;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            margin-bottom: 20px;
+            .messages {
+                display: flex;
+                flex-direction: column;
+                .message {
+                    position: relative;
+                    border-radius: 20px;
+                    padding: 8px 15px;
+                    margin: 5px 0;
+                    display: inline-block;
+                    color: @color-white;
+                }
+                .message.right {
+                    width: 50%;
+                    align-self: flex-end;
+                    align-items: flex-end;
+                }
+                .left {
+                    background-color: @color-blue1;
+                    position: relative;
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        z-index: 0;
+                        bottom: 0;
+                        left: -7px;
+                        height: 20px;
+                        width: 20px;
+                        background: @color-blue1;
+                        border-bottom-right-radius: 15px;
+                    }
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        z-index: 1;
+                        bottom: 0;
+                        left: -10px;
+                        width: 10px;
+                        height: 20px;
+                        background: white;
+                        border-bottom-right-radius: 10px;
+                    }
+                }
+                .right {
+                    background-color: @color-sky-blue1;
+                    position: relative;
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        z-index: 0;
+                        bottom: 0;
+                        right: -8px;
+                        height: 20px;
+                        width: 20px;
+                        background: @color-sky-blue1;
+                        background-attachment: fixed;
+                        border-bottom-left-radius: 15px;
+                    }
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        z-index: 1;
+                        bottom: 0;
+                        right: -10px;
+                        width: 10px;
+                        height: 20px;
+                        background: white;
+                        border-bottom-left-radius: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    #loyal-program-form {
+        padding-bottom: 20px;
+    }
+}
