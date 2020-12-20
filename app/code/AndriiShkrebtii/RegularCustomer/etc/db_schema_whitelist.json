@@ -1,0 +1,28 @@
+{
+    "andriishkrebtii_regular_customer_request": {
+        "column": {
+            "customer_request_id": true,
+            "customer_id": true,
+            "name": true,
+            "email": true,
+            "message": true,
+            "website_id": true,
+            "admin_user_id": true,
+            "status": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "index": {
+            "ANDRIISHKREBTII_REGULAR_CUSTOMER_REQUEST_CUSTOMER_ID": true,
+            "ANDRIISHKREBTII_REGULAR_CUSTOMER_REQUEST_WEBSITE_ID": true,
+            "ANDRIISHKREBTII_REGULAR_CUSTOMER_REQUEST_ADMIN_USER_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "ANDRIISHKREBTII_REGULAR_CUSTOMER_REQUEST_EMAIL_WEBSITE_ID": true,
+            "FK_658744811AB4A67985263EC807EF1056": true,
+            "FK_E227A86CBBC94BB047ED4887872EB179": true,
+            "ANDRIISHKREBTII_REGULAR_CSTR_REQUEST_WS_ID_M2_STORE_WS_WS_ID": true
+        }
+    }
+}
