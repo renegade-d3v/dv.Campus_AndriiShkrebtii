@@ -1,0 +1,10 @@
+<?php /** @var \AndriiShkrebtii\RegularCustomer\Block\RegularCustomerInfo $block */ ?>
+<?php /** @var \Magento\Framework\Escaper $escaper */ ?>
+<?php if ($personalDiscount = $block->getPersonalDiscount()): ?>
+    <p>
+        <?= $escaper->escapeHtml(__('Request status:')) ?>
+        <span><?= $escaper->escapeHtml($block->getStatusMessage($personalDiscount)) ?></span>
+    </p>
+<?php else: ?>
+    <p><?= $escaper->escapeHtml(__('No customer requests')) ?></p>
+<?php endif; ?>
