@@ -51,7 +51,7 @@ class RegularCustomerInfo extends \Magento\Framework\View\Element\Template
         /** @var DiscountRequest $discountRequest */
         $discountRequest = $collection->getFirstItem();
 
-        return $discountRequest->getDiscountRequestId() ? $discountRequest : null;
+        return $discountRequest->getCustomerRequestId() ? $discountRequest : null;
     }
 
     /**
