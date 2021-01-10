@@ -10,3 +10,9 @@ Success,Success
 Error,Error
 "Your request can't be sent. Please, contact us if you see this message.","Your request can't be sent. Please, contact us if you see this message."
 "Loyalty program for Regular Customers","Loyalty program for Regular Customers"
+pending,pending
+approved,approved
+declined,declined
+"Request status:","Request status:"
+"No customer requests","No customer requests"
+"Regular Customer Page","Regular Customer Page"

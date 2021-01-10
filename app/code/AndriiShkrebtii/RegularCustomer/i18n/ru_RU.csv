@@ -8,5 +8,11 @@ Email,Email
 "Register in Program","Зарегистрироваться в программе"
 Success,Успех
 Error,Ошибка
-"Your request can't be sent. Please, contact us if you see this message.","Ваш запрос не может быть отправлен. Пожалуйсиа, свяжитесь с нами если видите это сообщение."
+"Your request can't be sent. Please, contact us if you see this message.","Ваш запрос не может быть отправлен. Пожалуйста, свяжитесь с нами если видите это сообщение."
 "Loyalty program for Regular Customers","Программа лояльности для постоянных покупателей"
+pending,в ожидании
+approved,подтвержден
+declined,отклонен
+"Request status:","Статус запроса:"
+"No customer requests","Нет клиентских запросов"
+"Regular Customer Page","Страница постоянного клиента"
