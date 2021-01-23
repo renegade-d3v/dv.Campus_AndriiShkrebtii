@@ -25,6 +25,11 @@
                        template="AndriiShkrebtii_RegularCustomer::catalog/product/view/discount/form.phtml"
                        group="detailed_info"
                 />
+                <block class="Magento\Catalog\Block\Product\View"
+                       name="requested.message"
+                       template="AndriiShkrebtii_RegularCustomer::catalog/product/view/message.phtml"
+                       group="detailed_info"
+                />
             </block>
         </referenceBlock>
     </body>

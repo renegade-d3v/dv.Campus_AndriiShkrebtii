@@ -2,13 +2,15 @@ define([
     'jquery',
     'Magento_Ui/js/modal/alert',
     'Magento_Ui/js/modal/modal',
-    'mage/translate'
+    'mage/translate',
+    'mage/cookies'
 ], function ($, alert) {
     'use strict';
 
     $.widget('andriiShkrebtii.regularCustomerForm', {
         options: {
-            action: ''
+            action: '',
+            productId: ''
         },
 
         /**
@@ -55,6 +57,7 @@ define([
             let formData = new FormData($(this.element).get(0));
             formData.append('form_key', $.mage.cookies.get('form_key'));
             formData.append('isAjax', 1);
+            formData.append('productId', this.options.productId);
 
             $.ajax({
                 url: this.options.action,
@@ -83,7 +86,6 @@ define([
                 error: function () {
                     alert({
                         title: $.mage.__('Error'),
-                        /*eslint max-len: ["error", { "ignoreStrings": true }]*/
                         content: $.mage.__('Your request can\'t be sent. Please, contact us if you see this message.')
                     });
                 },

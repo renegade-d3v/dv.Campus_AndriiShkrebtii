@@ -6,7 +6,8 @@
           id="loyal-program-form"
           method="post"
           data-mage-init='{"andriiShkrebtiiRegularCustomerForm":{
-              "action": "<?= $escaper->escapeJs($block->getUrl('andriishkrebtii_regular_customer/index/request')) ?>"
+              "action": "<?= $escaper->escapeJs($block->getUrl('andriishkrebtii_regular_customer/index/request')) ?>",
+              "productId": "<?= $escaper->escapeJs($block->getProduct()->getId()) ?>"
           }}'
           onsubmit="return false;"
     >
