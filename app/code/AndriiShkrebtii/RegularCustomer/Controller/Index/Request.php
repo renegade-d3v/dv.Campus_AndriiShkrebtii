@@ -102,6 +102,7 @@ class Request implements \Magento\Framework\App\Action\HttpPostActionInterface
             $discountRequest->setName($this->request->getParam('name'))
                 ->setEmail($this->request->getParam('email'))
                 ->setCustomerId((int)$this->customerSession->getCustomerId())
+                ->setProductId($this->request->getParam('productId'))
                 ->setWebsiteId((int)$this->storeManager->getStore()->getWebsiteId())
                 ->setStatus(DiscountRequest::STATUS_PENDING);
             $this->discountRequestResource->save($discountRequest);

@@ -7,6 +7,8 @@ namespace AndriiShkrebtii\RegularCustomer\Model;
 /**
  * @method int|string|null getCustomerRequestId()
  * @method int|string|null getCustomerId()
+ * @method int|string|null getProductId()
+ * @method $this setProductId(int $productId)
  * @method $this setCustomerId(int $customerId)
  * @method string|null getName()
  * @method $this setName(string $name)
