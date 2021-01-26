@@ -92,6 +92,7 @@ class Request implements \Magento\Framework\App\Action\HttpPostActionInterface
         // @TODO: add Google Recaptcha to the form
         $response = $this->jsonResponseFactory->create();
         $formSaved = false;
+
         try {
             if (!$this->formKeyValidator->validate($this->request)) {
                 throw new \InvalidArgumentException('Form key is not valid');
@@ -107,10 +108,14 @@ class Request implements \Magento\Framework\App\Action\HttpPostActionInterface
                 ->setStatus(DiscountRequest::STATUS_PENDING);
             $this->discountRequestResource->save($discountRequest);
             $formSaved = true;
+
         } catch (\InvalidArgumentException $e) {
+
         } catch (\Exception $e) {
+
             $this->logger->error($e->getMessage());
         }
+
         $message = $formSaved
             ? __('You request for registration in program was accepted!')
             : __('Your request can\'t be sent. Please, contact us if you see this message.');

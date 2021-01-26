@@ -32,7 +32,7 @@ define(
              */
             showAlreadyRegisteredMessage: function () {
                 $(document).trigger('andrii_shkrebrii_regular_customer_show_message');
-                $(this.element).css('display', 'none');
+                $(this.element).show();
             },
 
             /**

@@ -17,7 +17,7 @@ define([
          * Generate event to show message
          */
         showMessage: function () {
-            $(this.element).css('display', 'inline-block');
+            $(this.element).show();
         }
     });
 

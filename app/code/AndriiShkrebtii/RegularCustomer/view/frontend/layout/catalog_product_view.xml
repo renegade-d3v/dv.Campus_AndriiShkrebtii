@@ -26,7 +26,7 @@
                        group="detailed_info"
                 />
                 <block class="Magento\Catalog\Block\Product\View"
-                       name="requested.message"
+                       name="loyalty.program.requested.message"
                        template="AndriiShkrebtii_RegularCustomer::catalog/product/view/message.phtml"
                        group="detailed_info"
                 />
