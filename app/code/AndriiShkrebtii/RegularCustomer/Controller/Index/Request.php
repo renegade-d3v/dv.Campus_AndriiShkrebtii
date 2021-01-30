@@ -108,11 +108,9 @@ class Request implements \Magento\Framework\App\Action\HttpPostActionInterface
                 ->setStatus(DiscountRequest::STATUS_PENDING);
             $this->discountRequestResource->save($discountRequest);
             $formSaved = true;
-
         } catch (\InvalidArgumentException $e) {
-
+            // No need to log form key validation errors
         } catch (\Exception $e) {
-
             $this->logger->error($e->getMessage());
         }
 

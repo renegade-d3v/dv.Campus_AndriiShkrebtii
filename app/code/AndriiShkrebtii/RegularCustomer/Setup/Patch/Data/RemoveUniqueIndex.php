@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace AndriiShkrebtii\RegularCustomer\Setup\Patch\Data;
 
-class RemoveUniqueIndex implements \Magento\Framework\Setup\Patch\SchemaPatchInterface
+use Magento\Framework\Setup\Patch\DataPatchInterface;
+
+class RemoveUniqueIndex implements \Magento\Framework\Setup\Patch\SchemaPatchInterface, DataPatchInterface
 {
     /**
      * @var \Magento\Framework\Setup\ModuleDataSetupInterface $schemaSetup
@@ -27,7 +29,15 @@ class RemoveUniqueIndex implements \Magento\Framework\Setup\Patch\SchemaPatchInt
     public function apply()
     {
         $this->schemaSetup->getConnection()->startSetup();
-        //
+        $this->schemaSetup->getConnection()->dropForeignKey(
+            $this->schemaSetup->getTable('andriishkrebtii_regular_customer_request'),
+            $this->schemaSetup->getFkName(
+                '',
+                'customer_request_id',
+                'andriishkrebtii_regular_customer_request',
+                'website_id, email',
+            )
+        );
         $this->schemaSetup->getConnection()->endSetup();
     }
 

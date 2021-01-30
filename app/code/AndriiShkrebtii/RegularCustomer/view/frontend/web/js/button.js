@@ -1,7 +1,9 @@
 define(
     [
         'jquery',
-        'jquery/ui'
+        'jquery/ui',
+        'mage/translate',
+        'Magento_Ui/js/modal/alert'
     ],
     function ($) {
         'use strict';
@@ -32,7 +34,7 @@ define(
              */
             showAlreadyRegisteredMessage: function () {
                 $(document).trigger('andrii_shkrebrii_regular_customer_show_message');
-                $(this.element).show();
+                $(this.element).hide();
             },
 
             /**
