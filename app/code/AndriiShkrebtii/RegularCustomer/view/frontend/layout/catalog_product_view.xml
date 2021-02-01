@@ -15,7 +15,7 @@
                         <argument name="block_id" xsi:type="string">loyalty_program_text</argument>
                     </arguments>
                 </block>
-                <block class="Magento\Framework\View\Element\Template"
+                <block class="Magento\Catalog\Block\Product\View"
                        name="loyalty.program.button"
                        template="AndriiShkrebtii_RegularCustomer::catalog/product/view/discount/button.phtml"
                        group="detailed_info"
@@ -26,8 +26,8 @@
                        group="detailed_info"
                 />
                 <block class="Magento\Catalog\Block\Product\View"
-                       name="loyalty.program.requested.message"
-                       template="AndriiShkrebtii_RegularCustomer::catalog/product/view/message.phtml"
+                       name="loyalty.program.requested.msg"
+                       template="AndriiShkrebtii_RegularCustomer::catalog/product/view/discount/message.phtml"
                        group="detailed_info"
                 />
             </block>

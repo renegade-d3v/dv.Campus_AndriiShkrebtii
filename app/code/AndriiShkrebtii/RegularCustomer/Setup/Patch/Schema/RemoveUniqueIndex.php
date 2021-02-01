@@ -2,35 +2,39 @@
 
 declare(strict_types=1);
 
-namespace AndriiShkrebtii\RegularCustomer\Setup\Patch\Data;
+namespace AndriiShkrebtii\RegularCustomer\Setup\Patch\Schema;
 
-use Magento\Framework\Setup\Patch\DataPatchInterface;
-
-class RemoveUniqueIndex implements \Magento\Framework\Setup\Patch\SchemaPatchInterface, DataPatchInterface
+class RemoveUniqueIndex implements \Magento\Framework\Setup\Patch\SchemaPatchInterface
 {
     /**
      * @var \Magento\Framework\Setup\ModuleDataSetupInterface $schemaSetup
      */
     private $schemaSetup;
 
-    /**
-     * RemoveOldForeignKeys constructor.
-     * @param \Magento\Framework\Setup\SchemaSetupInterface $schemaSetup
-     */
     public function __construct(
         \Magento\Framework\Setup\SchemaSetupInterface $schemaSetup
     ) {
         $this->schemaSetup = $schemaSetup;
     }
 
+    public function getIndex(): string
+    {
+        $indexName = '';
+        $this->schemaSetup->getConnection()->startSetup();
+        $this->schemaSetup->getIdxName('andriishkrebtii_regular_customer_request', ['email', 'website_id'], 'unique');
+        $this->schemaSetup->getConnection()->endSetup();
+        return $indexName;
+    }
+
     /**
      * {@inheritdoc}
      */
-    public function apply()
+    public function apply(): void
     {
         $this->schemaSetup->getConnection()->startSetup();
         $this->schemaSetup->getConnection()->dropIndex(
-            $this->schemaSetup->getIdxName($this->schemaSetup->getTable('andriishkrebtii_regular_customer_request'), ['email', 'website_id'], 'unique')
+            $this->schemaSetup->getTable('andriishkrebtii_regular_customer_request'),
+            $this->getIndex()
         );
         $this->schemaSetup->getConnection()->endSetup();
     }
