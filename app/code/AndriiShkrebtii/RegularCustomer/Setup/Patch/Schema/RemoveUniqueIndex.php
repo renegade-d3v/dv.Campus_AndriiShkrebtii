@@ -17,14 +17,6 @@ class RemoveUniqueIndex implements \Magento\Framework\Setup\Patch\SchemaPatchInt
         $this->schemaSetup = $schemaSetup;
     }
 
-    public function getIndex(): string
-    {
-        $this->schemaSetup->getConnection()->startSetup();
-        $indexName = $this->schemaSetup->getIdxName('andriishkrebtii_regular_customer_request', ['email', 'website_id'], 'unique');
-        $this->schemaSetup->getConnection()->endSetup();
-        return $indexName;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -33,7 +25,7 @@ class RemoveUniqueIndex implements \Magento\Framework\Setup\Patch\SchemaPatchInt
         $this->schemaSetup->getConnection()->startSetup();
         $this->schemaSetup->getConnection()->dropIndex(
             $this->schemaSetup->getTable('andriishkrebtii_regular_customer_request'),
-            $this->getIndex()
+            $this->schemaSetup->getIdxName('andriishkrebtii_regular_customer_request', ['email', 'website_id'], 'unique')
         );
         $this->schemaSetup->getConnection()->endSetup();
     }
