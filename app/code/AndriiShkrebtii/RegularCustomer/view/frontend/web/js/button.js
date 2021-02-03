@@ -18,8 +18,18 @@ define(
              * Constructor
              * @private
              */
-            _create: function () {
+            _create: function (andriiShkrebtiiRegularCustomerMessage) {
                 $(this.element).click(this.openRequestForm.bind(this));
+                $(this.element).click(this.ajaxRequest.bind(this));
+                $(document).trigger('andrii_shkrebrii_regular_customer_show_message');
+            },
+
+            /**
+             * Generate event to displayed message
+             */
+            showAlreadyRegisteredMessage: function () {
+                $(document).trigger('andrii_shkrebrii_regular_customer_show_message');
+                $(this.element).hide();
             },
 
             /**
@@ -29,12 +39,28 @@ define(
                 $(document).trigger('andrii_shkrebrii_regular_customer_open_loyal_form');
             },
 
+
             /**
-             * Generate event to displayed message
+             * Submit request via AJAX. Add product id to the post data.
              */
-            showAlreadyRegisteredMessage: function () {
-                $(document).trigger('andrii_shkrebrii_regular_customer_show_message');
-                $(this.element).hide();
+            ajaxRequest: function () {
+                $.ajax({
+                    url: this.options.url,
+                    data: {
+                        'isAjax': 1,
+                        'productId': this.options.productId
+                    },
+                    type: 'get',
+                    dataType: 'json',
+                    context: this,
+
+                    /** @inheritdoc */
+                    success: function (response) {
+                        if (response.result) {
+                            this.showAlreadyRegisteredMessage();
+                        }
+                    }
+                });
             }
         });
 

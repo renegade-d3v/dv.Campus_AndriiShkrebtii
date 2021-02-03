@@ -76,6 +76,9 @@ define([
                 /** @inheritdoc */
                 success: function (response) {
                     $(this.element).modal('closeModal');
+                    if (response.result) {
+                        $(document).trigger('andrii_shkrebrii_regular_customer_show_message');
+                    }
                     alert({
                         title: $.mage.__('Success'),
                         content: response.message
