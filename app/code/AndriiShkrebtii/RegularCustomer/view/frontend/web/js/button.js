@@ -1,12 +1,19 @@
 define(
     [
         'jquery',
-        'jquery/ui'
+        'jquery/ui',
+        'mage/translate',
+        'Magento_Ui/js/modal/alert'
     ],
     function ($) {
         'use strict';
 
         $.widget('andriiShkrebtii.regularCustomerButton', {
+            options: {
+                url: '',
+                productId: ''
+            },
+
             /**
              * Constructor
              * @private
@@ -20,6 +27,14 @@ define(
              */
             openRequestForm: function () {
                 $(document).trigger('andrii_shkrebrii_regular_customer_open_loyal_form');
+            },
+
+            /**
+             * Generate event to displayed message
+             */
+            showAlreadyRegisteredMessage: function () {
+                $(document).trigger('andrii_shkrebrii_regular_customer_show_message');
+                $(this.element).hide();
             }
         });
 

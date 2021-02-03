@@ -22,10 +22,6 @@
         <index referenceId="ANDRIISHKREBTII_REGULAR_CUSTOMER_REQUEST_ADMIN_USER_ID" indexType="btree">
             <column name="admin_user_id"/>
         </index>
-        <constraint xsi:type="unique" referenceId="ANDRIISHKREBTII_REGULAR_CUSTOMER_REQUEST_EMAIL_WEBSITE_ID">
-            <column name="email"/>
-            <column name="website_id"/>
-        </constraint>
         <constraint xsi:type="foreign"
                     referenceId="FK_E227A86CBBC94BB047ED4887872EB179"
                     table="andriishkrebtii_regular_customer_request"
