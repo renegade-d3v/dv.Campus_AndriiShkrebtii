@@ -18,9 +18,9 @@ define(
              * Constructor
              * @private
              */
-            _create: function (andriiShkrebtiiRegularCustomerMessage) {
+            _create: function () {
+                this.ajaxRequest();
                 $(this.element).click(this.openRequestForm.bind(this));
-                $(this.element).click(this.ajaxRequest.bind(this));
                 $(document).trigger('andrii_shkrebrii_regular_customer_show_message');
             },
 
