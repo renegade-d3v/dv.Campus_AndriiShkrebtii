@@ -100,9 +100,11 @@ class Request implements \Magento\Framework\App\Action\HttpPostActionInterface
 
             /** @var DiscountRequest $discountRequest */
             $discountRequest = $this->discountRequestFactory->create();
+            if ($this->customerSession->isLoggedIn()) {
+                $discountRequest->setCustomerId((int) $this->customerSession->getCustomerId());
+            }
             $discountRequest->setName($this->request->getParam('name'))
                 ->setEmail($this->request->getParam('email'))
-                ->setCustomerId((int)$this->customerSession->getCustomerId())
                 ->setProductId($this->request->getParam('productId'))
                 ->setWebsiteId((int)$this->storeManager->getStore()->getWebsiteId())
                 ->setStatus(DiscountRequest::STATUS_PENDING);
