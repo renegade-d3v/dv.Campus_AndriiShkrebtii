@@ -98,18 +98,20 @@ class Request implements \Magento\Framework\App\Action\HttpPostActionInterface
                 throw new \InvalidArgumentException('Form key is not valid');
             }
 
+            $customerId = $this->customerSession->getCustomerId() ? (int) $this->customerSession->getCustomerId() : null;
             /** @var DiscountRequest $discountRequest */
             $discountRequest = $this->discountRequestFactory->create();
             if ($this->customerSession->isLoggedIn()) {
-                $discountRequest->setCustomerId((int) $this->customerSession->getCustomerId());
+                $discountRequest->setCustomerId($customerId);
             }
+
             $discountRequest->setName($this->request->getParam('name'))
                 ->setEmail($this->request->getParam('email'))
                 ->setProductId($this->request->getParam('productId'))
+                ->setProductId((int)$this->request->getParam('product_id'))
                 ->setWebsiteId((int)$this->storeManager->getStore()->getWebsiteId())
                 ->setStatus(DiscountRequest::STATUS_PENDING);
             $this->discountRequestResource->save($discountRequest);
-            $formSaved = true;
         } catch (\InvalidArgumentException $e) {
             // No need to log form key validation errors
         } catch (\Exception $e) {

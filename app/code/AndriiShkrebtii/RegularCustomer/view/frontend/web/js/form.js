@@ -57,7 +57,7 @@ define([
             let formData = new FormData($(this.element).get(0));
             formData.append('form_key', $.mage.cookies.get('form_key'));
             formData.append('isAjax', 1);
-            formData.append('productId', this.options.productId);
+            formData.append('product_id', this.options.productId);
 
             $.ajax({
                 url: this.options.action,

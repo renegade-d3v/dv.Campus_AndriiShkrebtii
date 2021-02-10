@@ -48,7 +48,7 @@ define(
                     url: this.options.url,
                     data: {
                         'isAjax': 1,
-                        'productId': this.options.productId
+                        'product_id': this.options.productId
                     },
                     type: 'get',
                     dataType: 'json',

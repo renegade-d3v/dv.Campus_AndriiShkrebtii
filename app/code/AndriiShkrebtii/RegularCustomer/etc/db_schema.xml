@@ -3,6 +3,7 @@
     <table name="andriishkrebtii_regular_customer_request" resource="default" engine="innodb" comment="Regular Customer">
         <column xsi:type="int" name="customer_request_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Customer Request ID"/>
         <column xsi:type="int" name="customer_id" padding="10" unsigned="true" nullable="true" comment="Customer ID"/>
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="true" comment="Product ID"/>
         <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Name"/>
         <column xsi:type="varchar" name="email" nullable="false" length="255" comment="Email"/>
         <column xsi:type="smallint" name="website_id" padding="5" unsigned="true" nullable="true" comment="Website ID"/>
@@ -13,6 +14,9 @@
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="customer_request_id"/>
         </constraint>
+        <index referenceId="ANDRIISHKREBTII_REGULAR_CUSTOMER_REQUEST_PRODUCT_ID" indexType="btree">
+            <column name="product_id"/>
+        </index>
         <index referenceId="ANDRIISHKREBTII_REGULAR_CUSTOMER_REQUEST_CUSTOMER_ID" indexType="btree">
             <column name="customer_id"/>
         </index>
@@ -22,6 +26,14 @@
         <index referenceId="ANDRIISHKREBTII_REGULAR_CUSTOMER_REQUEST_ADMIN_USER_ID" indexType="btree">
             <column name="admin_user_id"/>
         </index>
+        <constraint xsi:type="foreign"
+                    referenceId="FK_F5A8F8B2E99276EEBF298122477FD8B9"
+                    table="andriishkrebtii_regular_customer_request"
+                    column="product_id"
+                    referenceTable="catalog_product_entity"
+                    referenceColumn="entity_id"
+                    onDelete="SET NULL"
+        />
         <constraint xsi:type="foreign"
                     referenceId="FK_E227A86CBBC94BB047ED4887872EB179"
                     table="andriishkrebtii_regular_customer_request"
