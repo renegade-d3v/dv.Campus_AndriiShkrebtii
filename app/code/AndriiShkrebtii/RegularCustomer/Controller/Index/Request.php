@@ -98,18 +98,31 @@ class Request implements \Magento\Framework\App\Action\HttpPostActionInterface
                 throw new \InvalidArgumentException('Form key is not valid');
             }
 
+            $customerId = $this->customerSession->getCustomerId()
+                ? (int) $this->customerSession->getCustomerId()
+                : null;
+            $productId = (int) $this->request->getParam('product_id');
             /** @var DiscountRequest $discountRequest */
             $discountRequest = $this->discountRequestFactory->create();
             if ($this->customerSession->isLoggedIn()) {
-                $discountRequest->setCustomerId((int) $this->customerSession->getCustomerId());
+                $discountRequest->setCustomerId($customerId);
             }
+
             $discountRequest->setName($this->request->getParam('name'))
                 ->setEmail($this->request->getParam('email'))
-                ->setProductId($this->request->getParam('productId'))
+                ->setProductId($productId)
+                ->setProductId((int)$this->request->getParam('product_id'))
                 ->setWebsiteId((int)$this->storeManager->getStore()->getWebsiteId())
                 ->setStatus(DiscountRequest::STATUS_PENDING);
             $this->discountRequestResource->save($discountRequest);
-            $formSaved = true;
+
+            if (!$this->customerSession->isLoggedIn()) {
+                $this->customerSession->setDiscountRequestCustomerEmail($this->request->getParam('email'));
+                $productIds = $this->customerSession->getDiscountRequestProductIds() ?? [];
+                $productIds[] = $productId;
+                $this->customerSession->setDiscountRequestProductIds(array_unique($productIds));
+            }
+
         } catch (\InvalidArgumentException $e) {
             // No need to log form key validation errors
         } catch (\Exception $e) {
@@ -117,7 +130,7 @@ class Request implements \Magento\Framework\App\Action\HttpPostActionInterface
         }
 
         $message = $formSaved
-            ? __('You request for registration in program was accepted!')
+            ? __('You request for product %1 was accepted!', $this->request->getParam('productName'))
             : __('Your request can\'t be sent. Please, contact us if you see this message.');
 
         $response->setData([
