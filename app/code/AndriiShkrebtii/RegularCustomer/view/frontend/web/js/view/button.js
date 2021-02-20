@@ -1,12 +1,52 @@
 define(
     [
         'jquery',
-        'jquery/ui',
+        'ko',
+        'uiComponent',
+        'Magento_Customer/js/customer-data',
         'mage/translate',
         'Magento_Ui/js/modal/alert'
     ],
-    function ($) {
+    function ($, ko, Component, customerData) {
         'use strict';
+
+        return Component.extend({
+            defaults: {
+                productId: 0,
+                requestAlreadySent: false,
+                template: 'AndriiShkrebtii_RegularCustomer/button'
+            },
+
+            /**
+             * @returns {*}
+             */
+            initObservable: function () {
+                this._super();
+                this.observe(['requestAlreadySent']);
+                this.checkRequestAlreadySent(customerData.get('personal-discount')());
+                customerData.get('personal-discount').subscribe(this.checkRequestAlreadySent.bind(this));
+
+                return this;
+            },
+
+            /**
+             * Check if the product has already been requested by the customer
+             */
+            checkRequestAlreadySent: function (personalDiscountData) {
+                if (personalDiscountData.hasOwnProperty('productIds') &&
+                    personalDiscountData.productIds.indexOf(this.productId) !== -1
+                ) {
+                    this.requestAlreadySent(true);
+                }
+            },
+
+            /**
+             * Generate event to open the form
+             */
+            openRequestForm: function () {
+                $(document).trigger('andrii_shkrebrii_regular_customer_open_loyal_form');
+            }
+        });
 
         $.widget('andriiShkrebtii.regularCustomerButton', {
             options: {
@@ -63,8 +103,6 @@ define(
                 });
             }
         });
-
-        return $.andriiShkrebtii.regularCustomerButton;
     }
 );
 
