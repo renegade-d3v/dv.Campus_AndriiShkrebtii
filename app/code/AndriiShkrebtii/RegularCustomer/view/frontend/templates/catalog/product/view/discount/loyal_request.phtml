@@ -1,0 +1,15 @@
+<?php /** @var \AndriiShkrebtii\RegularCustomer\Block\Product\View\DiscountRequest $block */ ?>
+<?php /** @TODO: only logged in customers must be able to make a request. Show login form on button click */ ?>
+
+<div data-bind="scope: 'personalDiscountRequestTab'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+            }
+        }
+    </script>
+</div>
+
+
