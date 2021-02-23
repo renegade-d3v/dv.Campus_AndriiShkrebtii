@@ -1,0 +1,55 @@
+<form class="form" action="javascript:void(0);" id="loyal-program-form" method="post" data-bind="submit: sendLoaylRequest, afterRender: initModal">
+    <fieldset class="fieldset">
+        <legend class="legend">
+            <span translate="'Loyal Program Registration Form'"></span>
+        </legend>
+        <br/>
+        <div class="field name required">
+            <label class="label" for="name">
+                <span translate="'Name'"></span>
+            </label>
+            <div class="control">
+                <input name="name"
+                       class="input-text"
+                       type="text"
+                       data-bind="
+                            value: customerName,
+                            attr: {
+                                title: $t('Name'),
+                                placeholder: $t('Enter Your Name'),
+                            }"
+                       data-validate="{ required: true }"
+                />
+            </div>
+        </div>
+        <div class="field email required">
+            <label class="label" for="email">
+                <span translate="'Email'"></span>
+            </label>
+            <div class="control">
+                <input name="email"
+                       class="input-text"
+                       type="email"
+                       data-bind="
+                            value: customerEmail,
+                            attr: {
+                                title: $t('Email'),
+                                placeholder: $t('Enter Your Email'),
+                            }"
+                       data-validate="{ required: true, 'validate-email': true}"
+                />
+            </div>
+        </div>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="hideit" id="hideit" data-bind="value: hideIt" value=""/>
+            <button type="submit" class="action submit primary" data-bind="
+                            attr: {
+                                title: $t('Register in Program')
+                            }">
+                <span translate="'Register in Program'"></span>
+            </button>
+        </div>
+    </div>
+</form>

@@ -1,57 +1,21 @@
-<?php /** @var \AndriiShkrebtii\RegularCustomer\Block\Product\View\DiscountRequestForm $block */ ?>
+<?php /** @var \AndriiShkrebtii\RegularCustomer\Block\Product\View\DiscountRequest $block */ ?>
 <?php /** @var \Magento\Framework\Escaper $escaper */ ?>
-<div style="display: none;">
-    <form class="form"
-          action="javascript:void(0);"
-          id="loyal-program-form"
-          method="post"
-          data-mage-init='{"andriiShkrebtiiRegularCustomerForm":{
-              "action": "<?= $escaper->escapeJs($block->getUrl('andriishkrebtii_regular_customer/index/request')) ?>",
-              "productId": "<?= $escaper->escapeJs((int)$block->getProduct()->getId()) ?>"
-          }}'
-          onsubmit="return false;"
-    >
-        <fieldset class="fieldset">
-            <legend class="legend">
-                <span><?= $escaper->escapeHtml(__('Loyal Program Registration Form')) ?></span>
-            </legend>
-            <br/>
-            <div class="field name required">
-                <label class="label" for="name">
-                    <span><?= $escaper->escapeHtml(__('Name')) ?></span>
-                </label>
-                <div class="control">
-                    <input name="name"
-                           title="<?= $escaper->escapeHtmlAttr(__('Name')) ?>"
-                           class="input-text"
-                           type="text"
-                           placeholder="<?= $escaper->escapeHtmlAttr(__('Enter Your Name')) ?>"
-                           data-validate="{required:true}"
-                    />
-                </div>
-            </div>
-            <div class="field email required">
-                <label class="label" for="email">
-                    <span><?= $escaper->escapeHtml(__('Email')) ?></span>
-                </label>
-                <div class="control">
-                    <input name="email"
-                           title="<?= $escaper->escapeHtmlAttr(__('Email')) ?>"
-                           class="input-text"
-                           type="email"
-                           placeholder="<?= $escaper->escapeHtmlAttr(__('Enter Your Email')) ?>"
-                           data-validate="{required:true, 'validate-email':true}"
-                    />
-                </div>
-            </div>
-        </fieldset>
-        <div class="actions-toolbar">
-            <div class="primary">
-                <input type="hidden" name="hideit" id="hideit" value=""/>
-                <button type="submit" title="<?= $escaper->escapeHtmlAttr(__('Register in Program')) ?>" class="action submit primary">
-                    <span><?= $escaper->escapeHtml(__('Register in Program')) ?></span>
-                </button>
-            </div>
-        </div>
-    </form>
+<div data-bind="scope: 'personalDiscountRequestForm'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
 </div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "personalDiscountRequestForm": {
+                        "component": "andriiShkrebtiiRegularCustomerForm",
+                        "action": "<?= $escaper->escapeJs($block->getUrl('andriishkrebtii_regular_customer/index/request')) ?>",
+                        "productId": <?= (int) $block->getProduct()->getId() ?>
+                    }
+                }
+            }
+        }
+    }
+</script>
