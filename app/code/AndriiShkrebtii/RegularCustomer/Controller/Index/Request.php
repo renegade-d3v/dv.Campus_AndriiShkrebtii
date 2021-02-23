@@ -123,6 +123,7 @@ class Request implements \Magento\Framework\App\Action\HttpPostActionInterface
                 $this->customerSession->setDiscountRequestProductIds(array_unique($productIds));
             }
 
+            $formSaved = true;
         } catch (\InvalidArgumentException $e) {
             // No need to log form key validation errors
         } catch (\Exception $e) {
@@ -130,7 +131,8 @@ class Request implements \Magento\Framework\App\Action\HttpPostActionInterface
         }
 
         $message = $formSaved
-            ? __('You request for product %1 was accepted!', $this->request->getParam('productName'))
+            ? __('Your request for a discount for the product %1 has been accepted!', $this->request
+                ->getParam('productName'))
             : __('Your request can\'t be sent. Please, contact us if you see this message.');
 
         $response->setData([
