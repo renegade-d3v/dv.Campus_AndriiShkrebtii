@@ -10,6 +10,7 @@
                    name="regular.customer.page"
                    template="AndriiShkrebtii_RegularCustomer::customer/account/view.phtml"
                    cacheable="false"
+                   ifconfig="AndriiShkrebtii_RegularCustomer/general/enabled"
             />
         </referenceContainer>
     </body>

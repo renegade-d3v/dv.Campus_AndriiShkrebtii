@@ -4,7 +4,7 @@
             <span translate="'Loyal Program Registration Form'"></span>
         </legend>
         <br/>
-        <div class="field name required">
+        <div class="field name required" data-bind="visible: !isLoggedIn()">
             <label class="label" for="name">
                 <span translate="'Name'"></span>
             </label>
@@ -22,7 +22,7 @@
                 />
             </div>
         </div>
-        <div class="field email required">
+        <div class="field email required" data-bind="visible: !isLoggedIn()">
             <label class="label" for="email">
                 <span translate="'Email'"></span>
             </label>
