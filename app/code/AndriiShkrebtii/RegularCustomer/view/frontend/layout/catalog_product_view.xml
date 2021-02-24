@@ -15,16 +15,43 @@
                         <argument name="block_id" xsi:type="string">loyalty_program_text</argument>
                     </arguments>
                 </block>
-                <block class="AndriiShkrebtii\RegularCustomer\Block\Product\View\DiscountRequest"
-                       name="loyalty-program-button"
-                       template="AndriiShkrebtii_RegularCustomer::catalog/product/view/discount/button.phtml"
-                       group="detailed_info"
-                />
-                <block class="AndriiShkrebtii\RegularCustomer\Block\Product\View\DiscountRequest"
-                       name="loyalty-program-form"
-                       template="AndriiShkrebtii_RegularCustomer::catalog/product/view/discount/form.phtml"
-                       group="detailed_info"
-                />
+                <block class="Magento\Catalog\Block\Product\View"
+                       name="loyalty-program-request"
+                       template="AndriiShkrebtii_RegularCustomer::catalog/product/view/discount/loyal_request.phtml"
+                       group="detailed_info">
+                    <arguments>
+                        <argument name="cache_lifetime" xsi:type="number">84600</argument>
+                        <argument name="jsLayout" xsi:type="array">
+                            <item name="components" xsi:type="array">
+                                <item name="personalDiscountRequestTab" xsi:type="array">
+                                    <item name="component" xsi:type="string">uiCollection</item>
+                                    <item name="children" xsi:type="array">
+                                        <item name="personalDiscountRequestButton" xsi:type="array">
+                                            <item name="component" xsi:type="string">andriiShkrebtiiRegularCustomerButton</item>
+                                            <item name="displayArea" xsi:type="string">andriiShkrebtii-RegularCustomer-Button</item>
+                                            <item name="config" xsi:type="array">
+                                                <item name="imports" xsi:type="array">
+                                                    <item name="productId" xsi:type="string">personalDiscountRequestTab.personalDiscountRequestForm:productId</item>
+                                                </item>
+                                                <item name="listens" xsi:type="array">
+                                                    <item name="personalDiscount" xsi:type="string">checkRequestAlreadySent</item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                        <item name="personalDiscountRequestForm" xsi:type="array">
+                                            <item name="component" xsi:type="string">andriiShkrebtiiRegularCustomerForm</item>
+                                            <item name="displayArea" xsi:type="string">andriiShkrebtii-RegularCustomer-Form</item>
+                                            <item name="action" xsi:type="url" path="andriishkrebtii_regular_customer/index/request"/>
+                                            <item name="productId" xsi:type="helper"
+                                                  helper="AndriiShkrebtii\RegularCustomer\Helper\CurrentProduct::getCurrentProductId"
+                                            />
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </argument>
+                    </arguments>
+                </block>
             </block>
         </referenceBlock>
     </body>
