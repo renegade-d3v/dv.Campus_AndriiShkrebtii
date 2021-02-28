@@ -13,11 +13,13 @@ define(
 
         return Component.extend({
             defaults: {
-                productId: 0,
-                allowForGuests: !!customerData.get('personal-discount')().isLoggedIn,
+                allowForGuests: !!customerData.get('personal-discount')().allowForGuests,
                 requestAlreadySent: false,
                 template: 'AndriiShkrebtii_RegularCustomer/button',
-                personalDiscount: customerData.get('personal-discount')
+                personalDiscount: customerData.get('personal-discount'),
+                listens: {
+                    personalDiscount: 'checkRequestAlreadySent'
+                }
             },
 
             /**
@@ -42,16 +44,6 @@ define(
             initObservable: function () {
                 this._super();
                 this.observe(['allowForGuests', 'requestAlreadySent']);
-                return this;
-            },
-
-            /**
-             * @returns {*}
-             */
-            initLinks: function () {
-                this._super();
-                this.checkRequestAlreadySent(this.personalDiscount());
-
                 return this;
             },
 
@@ -85,7 +77,7 @@ define(
                     this.requestAlreadySent(true);
                 }
 
-                this.allowForGuests(personalDiscountData.isLoggedIn);
+                this.allowForGuests(!!personalDiscountData.allowForGuests);
 
                 if (this.openRequestFormAfterSectionReload) {
                     this.openRequestFormAfterSectionReload = false;

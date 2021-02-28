@@ -80,7 +80,7 @@ define([
         /**
          * Validate form and send form data to the server
          */
-        sendLoaylRequest: function () {
+        sendLoyalRequest: function () {
             if (!this.validateForm()) {
                 return;
             }
