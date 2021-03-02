@@ -16,7 +16,7 @@
                         <argument name="block_id" xsi:type="string">loyalty_program_text</argument>
                     </arguments>
                 </block>
-                <block class="Magento\Catalog\Block\Product\View"
+                <block class="AndriiShkrebtii\RegularCustomer\Block\Product\View\DiscountRequest"
                        name="loyalty-program-request"
                        template="AndriiShkrebtii_RegularCustomer::catalog/product/view/discount/loyal_request.phtml"
                        group="detailed_info">
