@@ -16,6 +16,7 @@ define([
             hideIt: '',
             customerName: '',
             customerEmail: '',
+            isLoggedIn: !!customerData.get('personal-discount')().isLoggedIn,
             template: 'AndriiShkrebtii_RegularCustomer/form'
         },
 
@@ -27,7 +28,7 @@ define([
          */
         initObservable: function () {
             this._super();
-            this.observe(['customerName', 'customerEmail', 'hideIt'])
+            this.observe(['customerName', 'customerEmail', 'isLoggedIn', 'hideIt'])
             this.updatePersonalDiscountData(customerData.get('personal-discount')());
             customerData.get('personal-discount').subscribe(this.updatePersonalDiscountData.bind(this));
 
@@ -46,6 +47,8 @@ define([
             if (personalDiscountData.hasOwnProperty('email')) {
                 this.customerEmail(personalDiscountData.email);
             }
+
+            this.isLoggedIn(personalDiscountData.isLoggedIn);
         },
 
         /**
@@ -77,7 +80,7 @@ define([
         /**
          * Validate form and send form data to the server
          */
-        sendLoaylRequest: function () {
+        sendLoyalRequest: function () {
             if (!this.validateForm()) {
                 return;
             }

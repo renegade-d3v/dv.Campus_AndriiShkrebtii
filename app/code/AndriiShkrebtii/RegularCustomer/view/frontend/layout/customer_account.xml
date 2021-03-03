@@ -4,6 +4,7 @@
         <referenceBlock name="customer_account_navigation">
             <block class="Magento\Customer\Block\Account\SortLinkInterface"
                    name="regular-customer-info"
+                   ifconfig="AndriiShkrebtii_RegularCustomer/general/enabled"
             >
                 <arguments>
                     <argument name="path" xsi:type="string">andriishkrebtii_regular_customer/view/index</argument>

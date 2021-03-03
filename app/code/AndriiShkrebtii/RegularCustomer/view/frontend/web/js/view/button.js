@@ -4,17 +4,38 @@ define(
         'ko',
         'uiComponent',
         'Magento_Customer/js/customer-data',
+        'Magento_Customer/js/model/authentication-popup',
+        'Magento_Customer/js/action/login',
         'andriiShkrebtiiRegularCustomerForm'
     ],
-    function ($, ko, Component, customerData) {
+    function ($, ko, Component, customerData, authenticationPopup, loginAction) {
         'use strict';
 
         return Component.extend({
             defaults: {
-                productId: 0,
+                allowForGuests: !!customerData.get('personal-discount')().allowForGuests,
                 requestAlreadySent: false,
                 template: 'AndriiShkrebtii_RegularCustomer/button',
-                personalDiscount: customerData.get('personal-discount')
+                personalDiscount: customerData.get('personal-discount'),
+                listens: {
+                    personalDiscount: 'checkRequestAlreadySent'
+                }
+            },
+
+            /**
+             * @returns {*}
+             */
+            initialize: function () {
+                loginAction.registerLoginCallback(function () {
+                    customerData.invalidate(['*']);
+                });
+
+                this._super();
+
+                this.checkRequestAlreadySent(this.personalDiscount());
+                this.openRequestFormAfterSectionReload = false;
+
+                return this;
             },
 
             /**
@@ -22,17 +43,7 @@ define(
              */
             initObservable: function () {
                 this._super();
-                this.observe(['requestAlreadySent']);
-                return this;
-            },
-
-            /**
-             * @returns {*}
-             */
-            initLinks: function () {
-                this._super();
-                this.checkRequestAlreadySent(this.personalDiscount());
-
+                this.observe(['allowForGuests', 'requestAlreadySent']);
                 return this;
             },
 
@@ -40,7 +51,20 @@ define(
              * Generate event to open the form
              */
             openRequestForm: function () {
-                $(document).trigger('andrii_shkrebrii_regular_customer_open_loyal_form');
+
+                // Customer data may not be initialized yet or is not available on the first page load
+                // But we still need configurations, so must load the section before showing the button
+                if (Object.keys(this.personalDiscount()).length > 0) {
+                    if (this.allowForGuests() || !!this.personalDiscount().isLoggedIn) {
+                        $(document).trigger('andrii_shkrebrii_regular_customer_open_loyal_form');
+                    } else {
+                        authenticationPopup.showModal();
+                    }
+                } else {
+                    this.openRequestFormAfterSectionReload = true;
+                    customerData.reload(['personal-discount']);
+                }
+
             },
 
             /**
@@ -52,6 +76,15 @@ define(
                 ) {
                     this.requestAlreadySent(true);
                 }
+
+                this.allowForGuests(!!personalDiscountData.allowForGuests);
+
+                if (this.openRequestFormAfterSectionReload) {
+                    this.openRequestFormAfterSectionReload = false;
+                    this.openRequestForm();
+                }
+
+                return personalDiscountData;
             }
         });
     }

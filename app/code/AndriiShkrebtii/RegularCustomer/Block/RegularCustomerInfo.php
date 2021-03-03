@@ -9,20 +9,12 @@ use Magento\Framework\Phrase;
 
 class RegularCustomerInfo extends \Magento\Framework\View\Element\Template
 {
-    /**
-     * @var \AndriiShkrebtii\RegularCustomer\Model\ResourceModel\DiscountRequest\CollectionFactory $collectionFactorys
-     */
-    private $collectionFactory;
 
-    /**
-     * @var \Magento\Store\Model\StoreManagerInterface $storeManager
-     */
-    private $storeManager;
+    private \AndriiShkrebtii\RegularCustomer\Model\ResourceModel\DiscountRequest\CollectionFactory $collectionFactory;
 
-    /**
-     * @var \Magento\Customer\Model\Session
-     */
-    private $customerSession;
+    private \Magento\Store\Model\StoreManagerInterface $storeManager;
+
+    private \Magento\Customer\Model\Session $customerSession;
 
     /**
      * PersonalDiscountInfo constructor.
@@ -52,8 +44,7 @@ class RegularCustomerInfo extends \Magento\Framework\View\Element\Template
     {
         /** @var DiscountRequestCollection $collection */
         $collection = $this->collectionFactory->create();
-        $collection->addFieldToFilter('customer_id', (int)$this->customerSession->getCustomerId());
-        $collection->addFieldToFilter('email', 'john-doe@example.com');
+        $collection->addFieldToFilter('customer_id', (int)$this->customerSession->getCustomer()->getId());
         // @TODO: check if accounts are shared or not
         $collection->addFieldToFilter('website_id', $this->storeManager->getStore()->getWebsiteId());
         /** @var DiscountRequest $discountRequest */

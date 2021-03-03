@@ -15,5 +15,11 @@ approved,подтвержден
 declined,отклонен
 "Request status:","Статус запроса:"
 "No customer requests","Нет клиентских запросов"
-"Regular Customer Page","Страница постоянного клиента"
-"Already requested!","Запрос отправлен!"
+"Regular Customer Page","Страница Постоянного Клиента"
+"Already requested!","Запрос уже был отправлен!"
+"Regular Customer","Постоянный Клиент"
+"General Settings","Общие Настройки"
+"Settings per store view are not available","Настройки для просмотра магазина недоступны"
+Enabled,Включено
+"Allow for Guests","Разрешено для гостей"
+"Allow guests to submit discount requests","Разрешить гостям отправлять запросы на скидки"

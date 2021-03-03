@@ -8,16 +8,11 @@ use AndriiShkrebtii\RegularCustomer\Model\ResourceModel\DiscountRequest\Collecti
 
 class DiscountRequests implements \Magento\Customer\CustomerData\SectionSourceInterface
 {
-    /**
-     * @var \Magento\Customer\Model\Session $customerSession
-     */
-    private $customerSession;
+    private \Magento\Customer\Model\Session $customerSession;
 
-    /**
-     * @var \AndriiShkrebtii\RegularCustomer\Model\ResourceModel\DiscountRequest\CollectionFactory
-     * $discountRequestCollectionFactory
-     */
-    private $discountRequestCollectionFactory;
+    private \AndriiShkrebtii\RegularCustomer\Model\ResourceModel\DiscountRequest\CollectionFactory $discountRequestCollectionFactory;
+
+    private \AndriiShkrebtii\RegularCustomer\Helper\Config $configHelper;
 
     /**
      * DiscountRequests constructor.
@@ -27,17 +22,19 @@ class DiscountRequests implements \Magento\Customer\CustomerData\SectionSourceIn
      */
     public function __construct(
         \Magento\Customer\Model\Session $customerSession,
+        \AndriiShkrebtii\RegularCustomer\Helper\Config $configHelper,
         \AndriiShkrebtii\RegularCustomer\Model\ResourceModel\DiscountRequest\CollectionFactory
         $discountRequestCollectionFactory
     ) {
         $this->customerSession = $customerSession;
         $this->discountRequestCollectionFactory = $discountRequestCollectionFactory;
+        $this->configHelper = $configHelper;
     }
 
     /**
-     * @return array|void
+     * @return array
      */
-    public function getSectionData(): ? array
+    public function getSectionData(): array
     {
         $name = (string) $this->customerSession->getDiscountRequestCustomerName();
         $email = (string) $this->customerSession->getDiscountRequestCustomerEmail();
@@ -56,12 +53,14 @@ class DiscountRequests implements \Magento\Customer\CustomerData\SectionSourceIn
             $productIds = $discountRequestCollection->getColumnValues('product_id');
             $productIds = array_values(array_map('intval', $productIds));
         } else {
-            $productIds = $this->customerSession->getDiscountRequestProductIds();
+            $productIds = (array) $this->customerSession->getDiscountRequestProductIds();
         }
         return [
             'name' => $name,
             'email' => $email,
-            'productIds' => $productIds
+            'productIds' => $productIds,
+            'isLoggedIn' => $this->customerSession->isLoggedIn(),
+            'allowForGuests' => $this->configHelper->allowForGuests()
         ];
     }
 }
