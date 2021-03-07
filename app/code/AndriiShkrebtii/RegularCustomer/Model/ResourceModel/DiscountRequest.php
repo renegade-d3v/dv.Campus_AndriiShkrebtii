@@ -6,6 +6,8 @@ namespace AndriiShkrebtii\RegularCustomer\Model\ResourceModel;
 
 class DiscountRequest extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
+    protected $_idFieldName = 'customer_request_id';
+
     /**
      * @inheritDoc
      */

@@ -10,6 +10,14 @@
                         </resource>
                     </resource>
                 </resource>
+                <resource id="Magento_Backend::marketing">
+                    <resource id="AndriiShkrebtii_RegularCustomer::general" title="{DV.Campus}" sortOrder="100">
+                        <resource id="AndriiShkrebtii_RegularCustomer::listing" title="Loyal Program" translate="title" sortOrder="100">
+                            <resource id="AndriiShkrebtii_RegularCustomer::edit" title="Edit" translate="title" sortOrder="10"/>
+                            <resource id="AndriiShkrebtii_RegularCustomer::delete" title="Delete" translate="title" sortOrder="20"/>
+                        </resource>
+                    </resource>
+                </resource>
             </resource>
         </resources>
     </acl>

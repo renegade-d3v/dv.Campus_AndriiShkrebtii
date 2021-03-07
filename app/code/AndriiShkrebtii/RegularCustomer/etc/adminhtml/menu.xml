@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="AndriiShkrebtii_RegularCustomer::general" title="{DV.Campus}" module="AndriiShkrebtii_RegularCustomer" sortOrder="100" parent="Magento_Backend::marketing" resource="AndriiShkrebtii_RegularCustomer::general"/>
+        <add id="AndriiShkrebtii_RegularCustomer::listing" title="Loyal Program" translate="title" module="AndriiShkrebtii_RegularCustomer" sortOrder="100" parent="AndriiShkrebtii_RegularCustomer::general" action="andriishkrebtii_regular_customer/discount/index" resource="AndriiShkrebtii_RegularCustomer::listing"/>
+    </menu>
+</config>

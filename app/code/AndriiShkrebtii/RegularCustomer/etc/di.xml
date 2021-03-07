@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="listing_data_source" xsi:type="string">AndriiShkrebtii\RegularCustomer\Model\ResourceModel\Discount\Grid\Collection</item>
+                <item name="form_data_source" xsi:type="string">AndriiShkrebtii\RegularCustomer\Model\ResourceModel\Discount\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="AndriiShkrebtii\RegularCustomer\Model\ResourceModel\Discount\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">andriishkrebtii_regular_customer_request</argument>
+            <argument name="resourceModel" xsi:type="string">AndriiShkrebtii\RegularCustomer\Model\ResourceModel\DiscountRequest</argument>
+        </arguments>
+    </virtualType>
+</config>
