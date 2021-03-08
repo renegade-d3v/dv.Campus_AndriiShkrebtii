@@ -23,3 +23,31 @@ declined,declined
 Enabled,Enabled
 "Allow for Guests","Allow for Guests"
 "Allow guests to submit discount requests","Allow guests to submit discount requests"
+"Are you sure you want to delete this request?","Are you sure you want to delete this request?"
+Delete,Delete
+Save,Save
+"Request deleted!","Request deleted!"
+"We can't find a request to delete.","We can't find a request to delete."
+"This request no longer exists.","This request no longer exists."
+"Edit Discount Request","Edit Discount Request"
+"New Discount Request","New Discount Request"
+"%1 requests(s) have been updated.","%1 requests(s) have been updated."
+"%1 requests(s) have been deleted.","%1 requests(s) have been deleted."
+"Request saved!","Request saved!"
+Edit,Edit
+Pending,Pending
+Approved,Approved
+Declined,Declined
+"Loyal Program","Loyal Program"
+Back,Back
+"Product ID","Product ID"
+"Customer ID","Customer ID"
+"Add New Request","Add New Request"
+"Are you sure you want to delete selected requests?","Are you sure you want to delete selected requests?"
+"Delete Requests","Delete Requests"
+"Change status","Change status"
+"Customer Request ID","Customer Request ID"
+"Customer Name","Customer Name"
+"Product Name","Product Name"
+Website,Website
+Status,Status

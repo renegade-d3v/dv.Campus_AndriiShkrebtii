@@ -23,3 +23,31 @@ declined,отклонен
 Enabled,Включено
 "Allow for Guests","Разрешено для гостей"
 "Allow guests to submit discount requests","Разрешить гостям отправлять запросы на скидки"
+"Are you sure you want to delete this request?","Вы действительно хотите удалить этот запрос?"
+Delete,Удалить
+Save,Сохранить
+"Request deleted!","Запрос удален!"
+"We can't find a request to delete.","Мы не можем найти запрос для удаление."
+"This request no longer exists.","Этот запрос больше не существует."
+"Edit Discount Request","Редактировать запрос на скидку"
+"New Discount Request","Новый запрос на скидку"
+"%1 requests(s) have been updated.","%1 запрос(ы) были обновлены."
+"%1 requests(s) have been deleted.","%1 запросы были удалены."
+"Request saved!","Запрос сохранен!"
+Edit,Редактировать
+Pending,В ожидании
+Approved,Подтвержден
+Declined,Отклонен
+"Loyal Program","Программа лояльности"
+Back,Назад
+"Product ID","ID Продукта"
+"Customer ID","ID Покупателя"
+"Add New Request","Добавить новый запрос"
+"Are you sure you want to delete selected requests?","Вы действительно хотите удалить выбранные запросы?"
+"Delete Requests","Удалить запросы"
+"Change status","Изменить статус"
+"Customer Request ID","ID Запроса Клиента"
+"Customer Name","Имя Покупателя"
+"Product Name","Название продукта"
+Website,Сайт
+Status,Статус
