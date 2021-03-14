@@ -2,13 +2,13 @@
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">listing.listing_data_source</item>
+            <item name="provider" xsi:type="string">regular_customer_listing.regular_customer_listing_data_source</item>
         </item>
     </argument>
     <settings>
         <spinner>discount_columns</spinner>
         <deps>
-            <dep>listing.listing_data_source</dep>
+            <dep>regular_customer_listing.regular_customer_listing_data_source</dep>
         </deps>
         <buttons>
             <button name="add">
@@ -18,7 +18,7 @@
             </button>
         </buttons>
     </settings>
-    <dataSource name="listing_data_source" component="Magento_Ui/js/grid/provider">
+    <dataSource name="regular_customer_listing_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
             <storageConfig>
                 <param name="indexField" xsi:type="string">customer_request_id</param>
@@ -26,7 +26,7 @@
             <updateUrl path="mui/index/render"/>
         </settings>
         <aclResource>AndriiShkrebtii_RegularCustomer::listing</aclResource>
-        <dataProvider class="AndriiShkrebtii\RegularCustomer\Ui\Component\ListingDataProvider" name="listing_data_source">
+        <dataProvider class="AndriiShkrebtii\RegularCustomer\Ui\Component\RegularCustomerListingDataProvider" name="regular_customer_listing_data_source">
             <settings>
                 <requestFieldName>customer_request_id</requestFieldName>
                 <primaryFieldName>customer_request_id</primaryFieldName>

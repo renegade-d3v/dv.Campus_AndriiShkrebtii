@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace AndriiShkrebtii\RegularCustomer\Ui\Component;
 
-class FormDataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
+class RegularCustomerFormDataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
     /**
      * DiscountFormDataProvider constructor.

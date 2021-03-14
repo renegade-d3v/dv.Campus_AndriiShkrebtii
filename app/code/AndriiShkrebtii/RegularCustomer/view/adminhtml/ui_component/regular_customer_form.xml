@@ -2,7 +2,7 @@
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">form.form_data_source</item>
+            <item name="provider" xsi:type="string">regular_customer_form.regular_customer_form_data_source</item>
         </item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
         <item name="spinner" xsi:type="string">discount_form</item>
@@ -20,14 +20,14 @@
         <namespace>discount_form</namespace>
         <dataScope>data</dataScope>
         <deps>
-            <dep>form.form_data_source</dep>
+            <dep>regular_customer_form.regular_customer_form_data_source</dep>
         </deps>
     </settings>
-    <dataSource name="form_data_source" component="Magento_Ui/js/form/provider">
+    <dataSource name="regular_customer_form_data_source" component="Magento_Ui/js/form/provider">
         <settings>
             <submitUrl path="andriishkrebtii_regular_customer/discount/save"/>
         </settings>
-        <dataProvider class="AndriiShkrebtii\RegularCustomer\Ui\Component\FormDataProvider" name="form_data_source">
+        <dataProvider class="AndriiShkrebtii\RegularCustomer\Ui\Component\RegularCustomerFormDataProvider" name="regular_customer_form_data_source">
             <settings>
                 <requestFieldName>customer_request_id</requestFieldName>
                 <primaryFieldName>customer_request_id</primaryFieldName>

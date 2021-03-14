@@ -7,7 +7,7 @@ namespace AndriiShkrebtii\RegularCustomer\Ui\Component;
 use Magento\Catalog\Model\Product;
 use Magento\Customer\Model\Customer;
 
-class ListingDataProvider extends \Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider
+class RegularCustomerListingDataProvider extends \Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider
 {
     private \Magento\Backend\Model\UrlInterface $urlBuilder;
 
@@ -76,7 +76,7 @@ class ListingDataProvider extends \Magento\Framework\View\Element\UiComponent\Da
             $item['product_link'] = $this->urlBuilder->getUrl('catalog/product/edit', ['id' => $item['product_id']]);
             /** @var Product $product */
             $product = $productCollection->getItemById($item['product_id']);
-            $item['product_name'] = $product->getName();
+            $item['product_name'] = $product ? $product->getName() : 'N/A';
             /** @var Customer $customer */
             $customer = $customerCollection->getItemById($item['customer_id']);
             if ($item['customer_id']) {

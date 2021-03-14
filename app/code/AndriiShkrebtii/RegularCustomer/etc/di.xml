@@ -3,8 +3,8 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="listing_data_source" xsi:type="string">AndriiShkrebtii\RegularCustomer\Model\ResourceModel\Discount\Grid\Collection</item>
-                <item name="form_data_source" xsi:type="string">AndriiShkrebtii\RegularCustomer\Model\ResourceModel\Discount\Grid\Collection</item>
+                <item name="regular_customer_listing_data_source" xsi:type="string">AndriiShkrebtii\RegularCustomer\Model\ResourceModel\Discount\Grid\Collection</item>
+                <item name="regular_customer_form_data_source" xsi:type="string">AndriiShkrebtii\RegularCustomer\Model\ResourceModel\Discount\Grid\Collection</item>
             </argument>
         </arguments>
     </type>
